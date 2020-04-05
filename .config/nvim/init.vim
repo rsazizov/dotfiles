@@ -19,14 +19,16 @@ nnoremap <leader>r :!love .<CR><CR>
 
 inoremap jk <Esc>
 
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'kien/ctrlp.vim'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
 
+Plug 'tikhomirov/vim-glsl'
 Plug 'scrooloose/nerdtree'
 
 Plug 'mattn/emmet-vim'
@@ -56,8 +58,12 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
 
 Plug 'gruvbox-community/gruvbox'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
+
+let ayucolor='dark'
+colorscheme ayu
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 if executable('rg')
@@ -71,11 +77,9 @@ let g:NERDTreeDirArrows = 1
 
 let LanguageClient_diagnosticsEnable = 0
 
-colorscheme gruvbox
-
 let g:deoplete#enable_at_startup = 1
 
 " Set airline theme
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'ayu'
 
