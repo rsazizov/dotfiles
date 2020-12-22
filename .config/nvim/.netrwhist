@@ -1,6 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/rsazizov/git/ufaz-fwp/ynyy'
-let g:netrw_dirhist_2='/home/rsazizov/git/ufaz-oop1/pw3'
-let g:netrw_dirhist_3='/home/rsazizov/git/ufaz-fwp/hw'
-let g:netrw_dirhist_4='/home/rsazizov/.config/nvim'
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/rdc/.config'
+let g:netrw_dirhist_2='/home/rdc/.config/alacritty'
+let g:netrw_dirhist_1='/home/rdc/.config'

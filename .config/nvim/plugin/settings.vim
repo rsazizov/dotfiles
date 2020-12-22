@@ -1,3 +1,14 @@
+if filereadable('/usr/local/bin/python3')
+  " Avoid search, speeding up start-up.
+  let g:python3_host_prog='/usr/local/bin/python3'
+endif
+
+set nocompatible
+set expandtab
+set termguicolors
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set hidden
 set wildmenu
 set showcmd
@@ -15,21 +26,21 @@ set background=dark
 set splitbelow
 set splitright
 set guicursor=
+set colorcolumn=80
 
 " For airline
 set noshowmode
 
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
-
 set scrolloff=4
 set shiftround
-set smarttab
 
-set wildignore+=*.o,*.class
+set wildignore+=*.o,*.class,*.pyc
 
 " prevent vim from creating backup files all over the place.
-set backupdir=~/.config/nvim/tmp
+set backupdir=/tmp
 
+colorscheme ayu
+
+filetype plugin indent on
+syntax enable
+hi Normal guibg=NONE ctermbg=NONE

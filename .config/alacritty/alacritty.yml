@@ -1,6 +1,10 @@
-padding:
-  x: 0
-  y: 0
+window:
+  decorations: none
+  padding:
+    x: 5
+    y: 5
+
+# background_opacity: 0.95
 
 # Colors (Ayu Dark)
 colors:
@@ -35,5 +39,5 @@ font:
   normal:
     family: Cascadia Mono PL
 
-  size: 10.0
+  size: 10
 

@@ -1,85 +1,31 @@
-syntax on
-
-filetype indent plugin on
-
-set termguicolors
-set expandtab
-set smarttab
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
-
-nnoremap <C-P> :call LanguageClient#textDocument_documentSymbol()
-
+set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
 let mapleader = ' '
-let g:netrw_banner = 0
 
-nnoremap <leader> :nohl<CR><C-L>
-nnoremap <leader>r :!love .<CR><CR>
+if dein#load_state('~/.local/share.dein')
+  call dein#begin('~/.local/share/dein')
 
-inoremap jk <Esc>
+  call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
 
-call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'kien/ctrlp.vim'
+	" Install plugins
+	" UI for dein (vimplug-ish)
+	call dein#add('wsdjeg/dein-ui.vim')
 
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
+	call dein#add('neovim/nvim-lspconfig')
+	call dein#add('nvim-lua/completion-nvim')
 
-Plug 'tikhomirov/vim-glsl'
-Plug 'scrooloose/nerdtree'
+	call dein#add('tpope/vim-surround')
+	call dein#add('tpope/end-wise')
+	call dein#add('tpope/vim-eunuch')
+	call dein#add('tpope/vim-commentary')
 
-Plug 'mattn/emmet-vim'
+	call dein#add('scrooloose/nerdtree')
+	call dein#add('ayu-theme/ayu-vim')
 
-Plug 'junegunn/goyo.vim'
-
-Plug 'Shougo/deoplete.nvim'
-
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-
-Plug 'autozimu/LanguageClient-neovim', {
-  \ 'branch': 'next',
-  \ 'do': 'bash install.sh',
-  \ }
-
-let g:LanguageClient_serverCommands = {
-  \ 'python': ['~/.local/bin/pyls'],
-  \ 'cpp': ['clangd']
-  \ }
-
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'mhinz/vim-startify'
-
-Plug 'gruvbox-community/gruvbox'
-Plug 'ayu-theme/ayu-vim'
-
-call plug#end()
-
-let ayucolor='dark'
-colorscheme ayu
-
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-if executable('rg')
-  let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
+  call dein#end()
+  call dein#save_state()
 endif
-
-nnoremap <leader>f :NERDTreeToggle<Enter>
-
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeDirArrows = 1
-
-let LanguageClient_diagnosticsEnable = 0
-
-let g:deoplete#enable_at_startup = 1
-
-" Set airline theme
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'ayu'
-
